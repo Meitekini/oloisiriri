@@ -1,0 +1,51 @@
+---
+import Socials from './Socials.astro';
+import { Prism } from '@astrojs/prism';
+---
+
+<div>
+
+    <!-- Start: Terminal -->
+    <div class="mt-6 bg-fuchsia-900 rounded-lg p-4 border border-red-600 text-xs">
+
+        <div class="flex items-center mb-2">
+            <span class="text-gray-100 mr-2">meitekini@remotehost:~$ </span>
+            <span class="text-gray-100">sudo su connect</span>
+        </div>
+       
+
+        <div class="mt-2 text-gray-400">
+    </div>
+    <!-- End: Terminal -->
+
+            Initializing...
+            <br />
+            Ready to connect.
+            <br />
+            Waiting for contact request...
+        </div>
+
+
+    <!-- Start: Social Links -->
+    <Socials />
+    <!-- End: Social Links -->
+
+</div>
+
+<style>
+    /**
+ * Command Line plugin overrides
+ * https://prismjs.com/plugins/command-line
+ */
+
+/* Line separating gutter from coding area */
+.command-line .command-line-prompt {
+    border-right-color: unset;
+    color: whitesmoke;
+}
+
+/* User details or whatever in the gutter */
+.command-line .command-line-prompt > span:before {
+    color: unset;
+}
+</style>

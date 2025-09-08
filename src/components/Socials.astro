@@ -1,0 +1,47 @@
+---
+import SocialIcons from "./SocialIcons.astro";
+
+
+
+interface Social {
+    icon: 'github' | 'linkedIn' | 'twitter' | 'email' | 'xing';
+    link: string;
+    title?: string;
+}
+
+const socials: Social[] = [{
+    icon: 'github',
+    link: 'https://github.com/Meitekini',
+    title: 'View GitHub Profile'
+}, {
+    icon: 'twitter',
+    link: 'https://x.com/devidev_io',
+    title: 'View Twitter Profile'
+}, {
+    icon: 'linkedIn',
+    link: 'https://www.linkedin.com/in/dejan-vi',
+    title: 'View LinkedIn Profile'
+}, {
+    icon: 'email',
+    link: 'mailto:meitekinileakey@gmail.com',
+    title: 'Send Email'
+}];
+
+---
+
+<!-- Start: Social Links -->
+<div class="flex flex-wrap gap-3 mt-6 justify-between">
+
+    {socials.map(social =>
+        <a
+            href={social.link}
+            target="_blank"
+            title={social.title}
+            rel="noopener noreferrer"
+            class="flex items-center justify-center w-10 h-10 rounded-lg bg-black text-gray-100 transition-all duration-150 border border-gray-600 hover:bg-primary hover:-translate-y-0.5">
+            <SocialIcons icon={social.icon} />
+        </a>
+    )}
+
+</div>
+<!-- End: Social Links -->

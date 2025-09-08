@@ -1,0 +1,123 @@
+---
+import { Code } from 'astro:components';
+
+
+const code = `interface Developer {
+    name: string;
+    skills: string[];
+    interests: string[];
+};
+
+interface TechStack {
+    devOps: string[];
+    backend: string[];
+   frontend: string[];
+};
+
+type ContactType = 'github' | 'twitter' | 'linkedIn' | 'facebook' | 'email';
+
+const techStack: TechStack = {
+    devOps: [
+        'GitLab',
+        'GitHub',
+        'Kubernetes',
+        'Docker'
+    ],
+    frontend: [
+        'React',
+        'JavaScript',
+        'TypeScript',
+        'TailwindCSS',
+        'React Native',
+        'Astro',
+        'Ionic',
+        'Shadcn UI',
+        'CSS',
+        'SCSS',
+        'Markdown',
+        
+    ],
+    backend: [
+        'Node.js',
+        'Bun',
+        'Python',
+        'Go'
+        'PostgreSQL',
+        'MySQL',
+        'PHP',
+        'Resend'
+    ]
+};
+
+// Developer profile
+const me: Developer = {
+    name: 'Meitekini Leakey.',
+    skills: [
+        ...techStack.devOps,
+        ...techStack.backend,
+        ...techStack.frontend
+    ],
+    interests: [
+        'Open Source',
+        'Security',
+        'Privacy',
+        'Performance',
+        'Self-Hosting',
+        'Networking'
+    ]
+};
+
+// Contact function
+const contact = (type: ContactType): string => {
+    switch (type) {
+        case 'github':
+            return 'https://github.com/Meitekini';
+        case 'twitter':
+            return 'https://x.com/meitekini';
+        case 'linkedIn':
+            return 'https://www.linkedin.com/in/meitekini';
+        case 'facebook':
+            return 'https://www.xing.com/profile/grady_solitei';
+        case 'email':
+            return 'meitekinileakey@gmail.com';
+        default:
+            return 'Send fax.';
+
+    }
+};
+
+`;
+---
+
+<Code
+    code={code}
+    lang="js"
+    wrap={true}
+/>
+
+<style is:global>
+
+    /* Custom styling for code block line numbers */
+    pre.astro-code {
+        @apply bg-transparent;
+    }
+
+    pre.astro-code code {
+        @apply block;
+        counter-reset: step;
+        counter-increment: step 0;
+    }
+
+    pre.astro-code code .line {
+        @apply relative;
+    }
+
+    pre.astro-code code .line::before {
+        content: counter(step);
+        counter-increment: step;
+        color: gray;
+        padding-right: 2px;
+       
+    }
+
+</style>
